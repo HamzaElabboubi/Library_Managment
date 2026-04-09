@@ -1,16 +1,17 @@
 package com.example.LibraryApp.DTO;
 
+
+import com.example.LibraryApp.Model.Livre;
+import lombok.Data;
+
+import java.util.List;
+
+
+@Data
 public class AuteurDTO {
-    public class AuteurDTO {
-
-        private Long id;
+        private Long a_id;
         private String nom;
-
-        public AuteurDTO() {}
-
-        public AuteurDTO(Long id, String nom) {
-            this.id = id;
-            this.nom = nom;
-        }
+        private String prenom;
+        private List<String> titreLivre;
 
     }
