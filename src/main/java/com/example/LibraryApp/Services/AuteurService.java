@@ -39,10 +39,25 @@ public class AuteurService {
         return "Auteur avec ID " + id + " supprimé avec succès.";
     }
 
-    public String UpdateAuteur(Long id){
+
+    // update Auteur
+    public AuteurDTO UpdateAuteur(Long id,AuteurDTO dto){
         Auteur auteur = auteurRepo.findById(id)
                 .orElseThrow(()->new RuntimeException("Auteure non trouver"));
-        auteurRepo.save(id)
-        return "Auteur avec ID " + id + " supprimé avec succès.";
+
+        auteur.setNom(dto.getNom());
+
+        Auteur updated = auteurRepo.save(auteur);
+        return auteurMapper.toDTO(updated);
+
+    }
+
+    //Select one Auteur
+    public AuteurDTO GetAuteur(Long id){
+        Auteur auteur = auteurRepo.findById(id)
+                .orElseThrow(()->new RuntimeException("Auteure non Trouver"));
+        System.out.println(auteur);
+        return auteurMapper.toDTO(auteur);
+
     }
 }

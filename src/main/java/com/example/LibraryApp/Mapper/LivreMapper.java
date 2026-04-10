@@ -14,7 +14,7 @@ public interface LivreMapper {
     @Mapping(target = "auteurnom" , source = "auteur.nom")
     @Mapping(target = "auteurprenom",source = "auteur.prenom")
     @Mapping(target = "categorieNom",source = "categorie.name")
-    @Mapping(target = "editeurNom",source = "editeur.nom")
+    @Mapping(target = "editeurNom",source = "editeure.nom")
     LivreDTO toDTO(Livre livre);
 
 

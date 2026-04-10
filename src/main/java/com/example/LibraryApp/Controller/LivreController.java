@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LivreController {
 
-    @GetMapping("livre/{id}")
-    public String getlivre(@PathVariable)
+
+
 }
