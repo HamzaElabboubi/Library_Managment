@@ -68,4 +68,16 @@ public class LivreService {
                 .map(livreMapper::toDTO)
                 .collect(Collectors.toList());
     }
+
+    public String deleteLivre(Long id){
+        Livre livre = livreRepo.findById(id).orElseThrow(()-> new RuntimeException("Livre introuvable"));
+        livreRepo.deleteById(id);
+        return "Livre   " + livre.getTitre() + " supprimé avec succès.";
+    }
+
+    public LivreDTO updateLivre(LivreDTO dto,Long id){
+        Livre livre = livreRepo.findById(id)
+                .orElseThrow(()-> new RuntimeException("Livre non trouver"));
+
+    }
 }

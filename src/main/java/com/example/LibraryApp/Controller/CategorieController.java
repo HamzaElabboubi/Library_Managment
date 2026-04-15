@@ -10,33 +10,34 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("api/categorie")
 public class CategorieController {
 
     @Autowired CategoriService categoriService;
 
-    @PostMapping("api/creatCategorie")
+    @PostMapping
     public CategorieDTO creatCategori(@RequestBody CategorieDTO dto){
         return  categoriService.creatCategorie(dto);
     }
 
-    @GetMapping("api/getallCategorie")
+    @GetMapping
     public List<CategorieDTO> getallCategorie(){
         return categoriService.getAllCategorie();
     }
 
 
-    @GetMapping("api/getCategorie/{id}")
+    @GetMapping("{id}")
     public CategorieDTO getCategorie(@PathVariable Long id){
         return categoriService.getCategorie(id);
     }
 
-    @PutMapping("api/updateCategorie/{id}")
+    @PutMapping("/{id}")
     public CategorieDTO updateCategorie(@PathVariable Long id ,
                                         @RequestBody CategorieDTO dto){
         return  categoriService.updateCategorie(id, dto);
     }
 
-    @DeleteMapping("api/deleteCategorie/{id}")
+    @DeleteMapping("/{id}")
     public String deleteCategorie(@PathVariable Long id){
         return  categoriService.deleteCategorie(id);
     }

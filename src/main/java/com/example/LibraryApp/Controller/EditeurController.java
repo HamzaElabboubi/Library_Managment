@@ -10,32 +10,33 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("api/editeur")
 public class EditeurController {
 
     @Autowired EditeurService editeurService;
 
 
-    @PostMapping("api/creatEditeur")
+    @PostMapping
     public EditeureDTO creatEditeur( @RequestBody EditeureDTO dto){
         return editeurService.createEditeur(dto);
     }
 
-    @GetMapping("api/allEditeur")
+    @GetMapping
     public List<EditeureDTO> getAllEditeur(){
         return  editeurService.getAllEditeur();
     }
 
-    @GetMapping("api/getEditeur/{id}")
+    @GetMapping("/{id}")
     public EditeureDTO getEditeur(@PathVariable Long id){
         return editeurService.getEditeur(id);
     }
 
-    @PutMapping("api/updateEditeur/{id}")
+    @PutMapping("/{id}")
     public EditeureDTO updateEditeur(@PathVariable Long id, @RequestBody EditeureDTO dto){
         return editeurService.updateEditeur(id,dto);
     }
 
-    @DeleteMapping("api/deleteEditeur/{id}")
+    @DeleteMapping("/{id}")
     public String deleteEditeur(@PathVariable Long id){
         return editeurService.deleteEditeur(id);
     }
