@@ -33,11 +33,12 @@ public class LivreController {
 
     @DeleteMapping("/{id}")
     public String deleteLivre(@PathVariable Long id){
-        return livreService.deleteLivre(id)
+        return livreService.deleteLivre(id);
     }
 
     @PutMapping("/{id}")
     public LivreDTO updateLivre(@RequestBody LivreDTO dto, @PathVariable Long id){
+        return  livreService.updateLivre(dto,id);
 
     }
 
