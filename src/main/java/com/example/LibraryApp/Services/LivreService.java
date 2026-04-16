@@ -78,6 +78,9 @@ public class LivreService {
     public LivreDTO updateLivre(LivreDTO dto,Long id){
         Livre livre = livreRepo.findById(id)
                 .orElseThrow(()-> new RuntimeException("Livre non trouver"));
+        livre.setTitre(dto.getTitre());
+        Livre save = livreRepo.save(livre);
+        return livreMapper.toDTO(save);
 
     }
 }
