@@ -8,33 +8,34 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("api/auteur")
 public class AuteurController {
 
     @Autowired private AuteurService auteurService;
 
-    @GetMapping("api/allAuteur")
+    @GetMapping
     public List<AuteurDTO> getallAuteur(){
         return auteurService.GetAllAuteur();
     }
 
-    @PostMapping("api/addAuteur")
+    @PostMapping
     public AuteurDTO addAuteur(@RequestBody AuteurDTO dto){
         return auteurService.CreatAuteur(dto);
     }
 
-    @DeleteMapping("api/deleteAuteur/{id}")
+    @DeleteMapping("/{id}")
     public String deleteAuteur(@PathVariable Long id){
         return auteurService.DeleteAuteur(id);
     }
 
-    @PutMapping("api/updateAuteur/{id}")
+    @PutMapping("/{id}")
     public AuteurDTO updateAuteur( @PathVariable Long id,
                                    @RequestBody AuteurDTO dto ){
         return   auteurService.UpdateAuteur(id,dto);
 
     }
 
-    @GetMapping("api/getAuteur/{id}")
+    @GetMapping("/{id}")
     public AuteurDTO getAuteur(@PathVariable Long id){
         return auteurService.GetAuteur(id);
     }
