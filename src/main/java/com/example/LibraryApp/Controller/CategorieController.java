@@ -25,7 +25,7 @@ public class CategorieController {
         return categoriService.getAllCategorie();
     }
 
-
+    @GetMapping("/{id}")
     public CategorieDTO getCategorie(@PathVariable Long id){
         return categoriService.getCategorie(id);
     }
